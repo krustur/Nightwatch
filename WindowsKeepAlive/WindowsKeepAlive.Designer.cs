@@ -142,7 +142,6 @@
             this.MinimumSize = new System.Drawing.Size(320, 300);
             this.Name = "Form1";
             this.Text = "Windows Prevent Sleep";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxAutomaticSettings.ResumeLayout(false);
             this.groupBoxAutomaticSettings.PerformLayout();
             this.ResumeLayout(false);
