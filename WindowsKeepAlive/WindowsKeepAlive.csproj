@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowsKeepAliveContext.cs" />
     <EmbeddedResource Include="WindowsKeepAlive.resx">
       <DependentUpon>WindowsKeepAlive.cs</DependentUpon>
     </EmbeddedResource>
