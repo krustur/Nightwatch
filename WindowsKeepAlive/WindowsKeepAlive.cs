@@ -47,7 +47,15 @@ namespace WindowsKeepAlive
 
         private void ModeChanged(SleepServiceMode mode)
         {      
-            comboBoxSelectMode.SelectedIndex = (int) mode;            
+            comboBoxSelectMode.SelectedIndex = (int) mode;
+            if (mode == SleepServiceMode.Automatic)
+            {
+                groupBoxAutomaticSettings.Enabled = true;                
+            }
+            else
+            {
+                groupBoxAutomaticSettings.Enabled = false;
+            }
         }
 
         private void StateChanged(SleepServiceState sleepServiceState, bool automaticMode)
