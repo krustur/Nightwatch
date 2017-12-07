@@ -66,7 +66,7 @@ namespace Nightwatch
                     break;
 
                 case SleepServiceState.SleepDenied:
-                    labelCurrentMode.Text = automaticMode ? "Sleep prevented (automatic mode)" : "Sleep prevented";
+                    labelCurrentMode.Text = automaticMode ? "Sleep denied (automatic mode)" : "Sleep denied";
                     break;
             }
         }

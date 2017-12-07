@@ -46,8 +46,8 @@
             this.comboBoxSelectMode.FormattingEnabled = true;
             this.comboBoxSelectMode.Items.AddRange(new object[] {
             "Allow Sleep",
-            "Prevent Sleep",
-            "Prevent Sleep between ..."});
+            "Deny Sleep",
+            "Automatic"});
             this.comboBoxSelectMode.Location = new System.Drawing.Point(12, 25);
             this.comboBoxSelectMode.Name = "comboBoxSelectMode";
             this.comboBoxSelectMode.Size = new System.Drawing.Size(280, 21);
@@ -116,7 +116,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Prevent sleep until";
+            this.label4.Text = "Deny sleep until";
             // 
             // label3
             // 
@@ -125,7 +125,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Prevent sleep from";
+            this.label3.Text = "Deny sleep from";
             // 
             // Form1
             // 
