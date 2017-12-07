@@ -9,7 +9,6 @@ Param(
   [string]$versionNumbersInAssemblyVersion = "2"
 )
 
-Write-Output $makeReleaseVersion
 $ErrorActionPreference = "Stop"
 
 if ([bool]::Parse($makeReleaseVersion)) {
