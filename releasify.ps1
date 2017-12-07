@@ -1,6 +1,8 @@
 Param(
   [Parameter(Mandatory=$true)][int]$major,
   [Parameter(Mandatory=$true)][int]$minor,
+  [Parameter(Mandatory=$false)][string]$buildConfiguration='Release',
+  [Parameter(Mandatory=$false)][string]$buildPlatform='Any CPU',
   [Parameter(Mandatory=$false)][bool]$makeReleaseVersion = $True
 )
 
@@ -16,7 +18,7 @@ if ($msbuildpath) {
   }
 }
 
-& $msbuildpath Nightwatch.sln /t:Build /p:Configuration=Release /p:Platform="Any CPU"
+& $msbuildpath Nightwatch.sln /t:Build /p:Configuration=$buildConfiguration /p:Platform=$buildPlatform
 
 if ($LastExitCode -ne 0) {
     Write-Error "Build failed!!!"
@@ -25,25 +27,19 @@ if ($LastExitCode -ne 0) {
 ##
 ## Apply semantic versioning
 ##
+
 $date = Get-Date
 $year = $date.Year.ToString().Substring(2)
 $dayofyear = $date.DayOfYear.ToString()
 $rev = [math]::Round($date.TimeOfDay.TotalSeconds/4)
 $patch = "$year$dayofyear"
 $buildNumber = "$major.$minor.$patch.$rev"
-Write-Output $buildNumber
-#Write-Output [bool]::FalseString
 
-$applySemVerExpression = ".\ApplySemanticVersioningToAssemblies.ps1 -pathToSearch '.' -buildNumber $buildNumber -makeReleaseVersion $makeReleaseVersion -preReleaseName 'beta' -includeRevInPreRelease $([bool]::FalseString) -versionNumbersInAssemblyVersion '4'"
-Write-Output $applySemVerExpression
-Invoke-Expression $applySemVerExpression
-  <#
-  [string]$pathToSearch = $env:BUILD_SOURCESDIRECTORY,
-  [string]$buildNumber = $env:BUILD_BUILDNUMBER,
-  [regex]$pattern = "\d+\.\d+\.\d+\.\d+",
-  [string]$makeReleaseVersion = [bool]::FalseString,
-  [string]$preReleaseName = "",
-  [string]$includeRevInPreRelease = [bool]::FalseString,
-  [string]$patternSplitCharacters = ".",
-  [string]$versionNumbersInAssemblyVersion = "2"
-  #>
+$applySemVerInvoke = ".\ApplySemanticVersioningToAssemblies.ps1 -pathToSearch '.' -buildNumber $buildNumber -makeReleaseVersion $makeReleaseVersion -preReleaseName 'beta' -includeRevInPreRelease $([bool]::FalseString) -versionNumbersInAssemblyVersion '4'"
+Invoke-Expression $applySemVerInvoke
+
+##
+## NuGet pack
+##
+
+.\nuget.exe pack .\Nightwatch\Nightwatch.csproj -Prop Configuration=$buildConfiguration
