@@ -2,8 +2,12 @@
 Prevent Windows from starting screen saver
 
 # Todo (maybe)
+Rename to WinAwake/Nightwatch?
+
+Display version
+
 Install using squirrel
 
-WPF instead of WinForms
+Scheduled shut down
 
-Rename to WinAwake?
+WPF instead of WinForms
