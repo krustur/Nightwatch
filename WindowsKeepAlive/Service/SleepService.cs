@@ -62,6 +62,7 @@ namespace WindowsKeepAlive.Service
         {
             LoadConfiguration();
             EvaluateState();
+            CreateTimer();
         }
 
         public void SetModeConfiguration(SleepServiceMode mode)
@@ -74,16 +75,12 @@ namespace WindowsKeepAlive.Service
             switch (Mode)
             {
                 case SleepServiceMode.AllowSleep:
-                    DeleteTimer();
                     EvaluateState();
                     break;
                 case SleepServiceMode.DenySleep:
-                    DeleteTimer();
                     EvaluateState();
                     break;
                 case SleepServiceMode.Automatic:
-                    DeleteTimer();
-                    CreateTimer();
                     EvaluateState();
                     break;
                 default:
@@ -137,22 +134,10 @@ namespace WindowsKeepAlive.Service
         {
             _timer = new Timer
             {
-                Interval = 45*1000
+                Interval = 5*1000
             };
             _timer.Tick += TimerTick;
             _timer.Start();
-        }
-
-        private void DeleteTimer()
-        {
-            if (_timer != null)
-            {
-                //if (_timer.Enabled == true)
-                //{
-                _timer.Stop();
-                //}
-                _timer = null;
-            }
         }
 
         private void TimerTick(object sender, EventArgs e)
