@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace WindowsKeepAlive.Service
+namespace Nightwatch.Service
 {
     public enum SleepServiceMode
     {

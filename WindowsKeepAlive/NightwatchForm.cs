@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using WindowsKeepAlive.Service;
+using Nightwatch.Service;
 
 // ReSharper disable InconsistentNaming
 
-namespace WindowsKeepAlive
+namespace Nightwatch
 {
-    public partial class WindowsKeepAlive : Form
+    public partial class NightwatchForm : Form
     {
         private Timer _timer;
         private readonly SleepService _sleepService;
         private bool _acceptEvents = true;
 
-        public WindowsKeepAlive(SleepService sleepService)
+        public NightwatchForm(SleepService sleepService)
         {
             _sleepService = sleepService;
             _sleepService.StateChanged += StateChanged;

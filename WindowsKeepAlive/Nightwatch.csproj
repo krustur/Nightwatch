@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B72F3783-A081-4C11-9E4D-36B95E088B12}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsKeepAlive</RootNamespace>
-    <AssemblyName>WindowsKeepAlive</AssemblyName>
+    <RootNamespace>Nightwatch</RootNamespace>
+    <AssemblyName>Nightwatch</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,17 +48,17 @@
     <Compile Include="Service\EXECUTION_STATE.cs" />
     <Compile Include="Service\SleepService.cs" />
     <Compile Include="Service\SleepUtil.cs" />
-    <Compile Include="WindowsKeepAlive.cs">
+    <Compile Include="NightwatchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowsKeepAlive.Designer.cs">
-      <DependentUpon>WindowsKeepAlive.cs</DependentUpon>
+    <Compile Include="NightwatchForm.Designer.cs">
+      <DependentUpon>NightwatchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WindowsKeepAliveContext.cs" />
-    <EmbeddedResource Include="WindowsKeepAlive.resx">
-      <DependentUpon>WindowsKeepAlive.cs</DependentUpon>
+    <Compile Include="NightwatchContext.cs" />
+    <EmbeddedResource Include="NightwatchForm.resx">
+      <DependentUpon>NightwatchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

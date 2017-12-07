@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsKeepAlive.Service
+namespace Nightwatch.Service
 {
     [Flags]
     public enum EXECUTION_STATE : uint

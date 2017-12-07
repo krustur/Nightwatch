@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace WindowsKeepAlive.Service
+namespace Nightwatch.Service
 {
     public static class SleepUtil
     {

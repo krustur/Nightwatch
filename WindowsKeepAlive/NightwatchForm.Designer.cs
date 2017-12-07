@@ -1,6 +1,6 @@
-﻿namespace WindowsKeepAlive
+﻿namespace Nightwatch
 {
-    partial class WindowsKeepAlive
+    partial class NightwatchForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WindowsKeepAlive));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NightwatchForm));
             this.comboBoxSelectMode = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -141,7 +141,7 @@
             this.MaximumSize = new System.Drawing.Size(320, 300);
             this.MinimumSize = new System.Drawing.Size(320, 300);
             this.Name = "Form1";
-            this.Text = "Windows Prevent Sleep";
+            this.Text = "Nightwatch";
             this.groupBoxAutomaticSettings.ResumeLayout(false);
             this.groupBoxAutomaticSettings.PerformLayout();
             this.ResumeLayout(false);

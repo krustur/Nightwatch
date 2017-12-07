@@ -1,29 +1,29 @@
 ﻿using System;
 using System.Windows.Forms;
-using WindowsKeepAlive.Service;
+using Nightwatch.Service;
 
-namespace WindowsKeepAlive
+namespace Nightwatch
 {
-    internal class WindowsKeepAliveContext : ApplicationContext
+    internal class NightwatchContext : ApplicationContext
     {
-        readonly WindowsKeepAlive _windowsKeepAlive;
+        readonly Nightwatch.NightwatchForm _nightwatchForm;
         private readonly NotifyIcon _notifyIcon;
 
-        public WindowsKeepAliveContext()
+        public NightwatchContext()
         {
             var sleepService = new SleepService();
 
-            _windowsKeepAlive = new WindowsKeepAlive(sleepService);
-            _windowsKeepAlive.DisableEvents();
+            _nightwatchForm = new Nightwatch.NightwatchForm(sleepService);
+            _nightwatchForm.DisableEvents();
             sleepService.StartService();
-            _windowsKeepAlive.EnableEvents();
+            _nightwatchForm.EnableEvents();
 
             var configMenuItem = new MenuItem("Configuration", new EventHandler(ShowConfig));
             var exitMenuItem = new MenuItem("Exit", new EventHandler(Exit));
 
             _notifyIcon = new NotifyIcon();
             
-            _notifyIcon.Icon = global::WindowsKeepAlive.Properties.Resources.icon;
+            _notifyIcon.Icon = Properties.Resources.icon;
             _notifyIcon.ContextMenu = new ContextMenu(new MenuItem[]
                 { configMenuItem, exitMenuItem });
             _notifyIcon.Visible = true;
@@ -42,13 +42,13 @@ namespace WindowsKeepAlive
 
         void ShowConfig(object sender, EventArgs e)
         {
-            if (_windowsKeepAlive.Visible)
+            if (_nightwatchForm.Visible)
             {
-                _windowsKeepAlive.Activate();
+                _nightwatchForm.Activate();
             }
             else
             {
-                _windowsKeepAlive.ShowDialog();
+                _nightwatchForm.ShowDialog();
             }
         }
     }
