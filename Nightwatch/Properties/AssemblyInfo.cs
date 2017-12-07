@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NightwatchForm")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Nightwatch")]
+[assembly: AssemblyDescription("Nightwatch - Keeps your computer awake through the night")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Krister Jansson")]
 [assembly: AssemblyProduct("NightwatchForm")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
