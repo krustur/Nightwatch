@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>Nightwatch</id>
     <version>$version$</version>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <authors>Krister Jansson</authors>
+    <owners>Krister Jansson</owners>
     <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
     <projectUrl>https://github.com/krustur/Nightwatch</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/krustur/Nightwatch/master/Nightwatch/icon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>$copyright$</copyright>
-    <tags>Nightwatch</tags>    
+    <description>Nightwatch - Keeps your computer awake through the night</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright ©  2017</copyright>
+    <tags>Nightwatch Prevent Screen saver</tags>
   </metadata>
+  <files>
+    <file src="bin\Release\*" target="lib\net45" exclude="**\*.pdb" />    
+  </files>
 </package>

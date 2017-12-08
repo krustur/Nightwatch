@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Reflection;
 using System.Windows.Forms;
 using Nightwatch.Service;
 
@@ -8,7 +10,6 @@ namespace Nightwatch
 {
     public partial class NightwatchForm : Form
     {
-        private Timer _timer;
         private readonly SleepService _sleepService;
         private bool _acceptEvents = true;
 
@@ -26,6 +27,12 @@ namespace Nightwatch
             dateTimePickerAutomaticStartTime.ShowUpDown = true;
             dateTimePickerAutomaticStopTime.Format = DateTimePickerFormat.Time;
             dateTimePickerAutomaticStopTime.ShowUpDown = true;
+
+            var fileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+            var fileVersion = fileVersionInfo.FileVersion;
+            var productVersion = fileVersionInfo.ProductVersion;
+            labelVersion.Text = productVersion;
+            //labelVersion.t
         }
 
         private void AutomaticStopTimeChanged(TimeSpan automaticStopTime)

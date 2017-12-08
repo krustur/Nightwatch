@@ -1,12 +1,30 @@
 Param(
-  [Parameter(Mandatory=$true)][int]$major,
-  [Parameter(Mandatory=$true)][int]$minor,
+  [Parameter(Mandatory=$false)][int]$major = '0',
+  [Parameter(Mandatory=$false)][int]$minor = '3',
   [Parameter(Mandatory=$false)][string]$buildConfiguration='Release',
   [Parameter(Mandatory=$false)][string]$buildPlatform='Any CPU',
   [Parameter(Mandatory=$false)][bool]$makeReleaseVersion = $True
 )
 
 $ErrorActionPreference = "Stop"
+
+##
+## Apply semantic versioning
+##
+
+$date = Get-Date
+$year = $date.Year.ToString().Substring(2)
+$dayofyear = $date.DayOfYear.ToString()
+$rev = [math]::Round($date.TimeOfDay.TotalSeconds/4)
+$patch = "$year$dayofyear"
+#$buildNumber = "$major.$minor.$patch.$rev"
+#$slimBuildNumber = "$major.$minor.$patch"
+
+$buildNumber = "$major.$minor.$rev.0"
+$slimBuildNumber = "$major.$minor.$rev"
+
+$applySemVerInvoke = ".\ApplySemanticVersioningToAssemblies.ps1 -pathToSearch '.' -buildNumber $buildNumber -makeReleaseVersion $makeReleaseVersion -preReleaseName 'beta' -includeRevInPreRelease $([bool]::FalseString) -versionNumbersInAssemblyVersion '2'"
+Invoke-Expression $applySemVerInvoke
 
 ##
 ## Build
@@ -25,21 +43,13 @@ if ($LastExitCode -ne 0) {
 }
 
 ##
-## Apply semantic versioning
-##
-
-$date = Get-Date
-$year = $date.Year.ToString().Substring(2)
-$dayofyear = $date.DayOfYear.ToString()
-$rev = [math]::Round($date.TimeOfDay.TotalSeconds/4)
-$patch = "$year$dayofyear"
-$buildNumber = "$major.$minor.$patch.$rev"
-
-$applySemVerInvoke = ".\ApplySemanticVersioningToAssemblies.ps1 -pathToSearch '.' -buildNumber $buildNumber -makeReleaseVersion $makeReleaseVersion -preReleaseName 'beta' -includeRevInPreRelease $([bool]::FalseString) -versionNumbersInAssemblyVersion '4'"
-Invoke-Expression $applySemVerInvoke
-
-##
 ## NuGet pack
 ##
 
-.\nuget.exe pack .\Nightwatch\Nightwatch.csproj -Prop Configuration=$buildConfiguration
+.\nuget.exe pack .\Nightwatch\Nightwatch.nuspec -version $slimBuildNumber
+
+##
+## Releasify
+##
+
+.\packages\squirrel.windows.1.7.8\tools\Squirrel --releasify Nightwatch.$slimBuildNumber.nupkg

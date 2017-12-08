@@ -6,6 +6,10 @@ Display version
 
 Install using squirrel
 
-Scheduled shut down
+Tooltip to show state
 
-WPF instead of WinForms
+Only allow one instance to run
+
+Fix shortcuts etc
+
+Scheduled shut down

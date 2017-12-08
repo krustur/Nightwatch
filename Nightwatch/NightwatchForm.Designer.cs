@@ -38,6 +38,7 @@
             this.groupBoxAutomaticSettings = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.groupBoxAutomaticSettings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,7 +115,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 55);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
+            this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Deny sleep until";
             // 
@@ -123,15 +124,26 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Deny sleep from";
             // 
-            // Form1
+            // labelVersion
+            // 
+            this.labelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVersion.Location = new System.Drawing.Point(192, 229);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(100, 23);
+            this.labelVersion.TabIndex = 10;
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // NightwatchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 261);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.groupBoxAutomaticSettings);
             this.Controls.Add(this.labelCurrentMode);
             this.Controls.Add(this.label2);
@@ -140,7 +152,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(320, 300);
             this.MinimumSize = new System.Drawing.Size(320, 300);
-            this.Name = "Form1";
+            this.Name = "NightwatchForm";
             this.Text = "Nightwatch";
             this.groupBoxAutomaticSettings.ResumeLayout(false);
             this.groupBoxAutomaticSettings.PerformLayout();
@@ -159,6 +171,7 @@
         private System.Windows.Forms.GroupBox groupBoxAutomaticSettings;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelVersion;
     }
 }
 
