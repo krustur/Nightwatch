@@ -1,6 +1,6 @@
 Param(
-  [Parameter(Mandatory=$false)][int]$major = '0',
-  [Parameter(Mandatory=$false)][int]$minor = '3',
+  [Parameter(Mandatory=$true)][int]$major,
+  [Parameter(Mandatory=$true)][int]$minor,
   [Parameter(Mandatory=$false)][string]$buildConfiguration='Release',
   [Parameter(Mandatory=$false)][string]$buildPlatform='Any CPU',
   [Parameter(Mandatory=$false)][bool]$makeReleaseVersion = $True
@@ -52,7 +52,7 @@ if ($LastExitCode -ne 0) {
 ## Releasify
 ##
 
-.\packages\squirrel.windows.1.7.8\tools\Squirrel --releasify Nightwatch.$slimBuildNumber.nupkg
+.\packages\squirrel.windows.1.7.8\tools\Squirrel --releasify Nightwatch.$slimBuildNumber.nupkg --icon .\Nightwatch\icon.ico
 
 ##
 ## Create Release on github

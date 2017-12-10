@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Nightwatch - Keeps your computer awake through the night")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Krister Jansson")]
-[assembly: AssemblyProduct("NightwatchForm")]
+[assembly: AssemblyProduct("Nightwatch")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -31,6 +31,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("0.3")]
-[assembly: AssemblyFileVersion("0.3.1066.0")]
-[assembly: AssemblyInformationalVersion("0.3.1066")]
+[assembly: AssemblyVersion("0.4")]
+[assembly: AssemblyFileVersion("0.4.809.0")]
+[assembly: AssemblyInformationalVersion("0.4.809")]
