@@ -2,11 +2,9 @@
 Prevent Windows from starting screen saver
 
 # Todo (maybe)
-Fix carsh on exit-bug
+Fix crash on exit-bug
 
 Task bar Icon reflect state
-
-Install using squirrel
 
 Tooltip to show state
 
